@@ -1,0 +1,38 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" id="icon" alt="User Icon" />
+      </div>
+
+      <!-- Login Form -->
+      <form  [formGroup]="registerForm" (ngSubmit)="onFormSubmit()" >
+
+        <input type="text" id="login" class="fadeIn second"    formControlName="username" value="" placeholder="login" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+          <div *ngIf="f.username.errors.required">First Name is required</div>
+        </div>
+
+        <input type="text" id="password" class="fadeIn third"  formControlName="password" value="" minlength="6" placeholder="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Password is required</div>
+          <div *ngIf="f.password.errors.minlength">Password have most 6 caracters</div>
+        </div>
+
+        <input type="submit" class="fadeIn fourth" value="Log In">
+      </form>
+
+      <b>Today's  Date:</b> {{ todaydate }}
+
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Forgot Password?</a>
+      </div>
+
+      <br />
+      <p><a class="btn btn-secondary" href="/carousel">Carousel</a> </p>
+
+    </div>
+  </div>
